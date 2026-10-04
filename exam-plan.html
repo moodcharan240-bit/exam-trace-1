@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>9-Month Exam Prep Checklist · Oct 2026 – Jun 2027</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f5f1;--card:#fff;--ink:#1c2b24;--mute:#5d6d65;--line:#d9dfd9;--accent:#1f6f54;--accent2:#e8f2ec;--q:#2a5da8;--r:#8a4b9c;--m:#b0661a;--today:#fff3c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121815;--card:#1b231f;--ink:#e6ece8;--mute:#9aaba2;--line:#2e3a34;--accent:#4fc197;--accent2:#1f3329;--q:#7fa9ea;--r:#d3a0e2;--m:#e9a559;--today:#4a4220}}
+:root[data-theme="dark"]{--bg:#121815;--card:#1b231f;--ink:#e6ece8;--mute:#9aaba2;--line:#2e3a34;--accent:#4fc197;--accent2:#1f3329;--q:#7fa9ea;--r:#d3a0e2;--m:#e9a559;--today:#4a4220}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Trebuchet MS","Segoe UI",Verdana,sans-serif}
+header{padding:28px 20px 12px;max-width:900px;margin:0 auto}
+h1{font:700 clamp(1.6rem,4vw,2.3rem)/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.95rem}
+.bar{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.stat{display:flex;justify-content:space-between;font-size:.9rem;margin:6px 0 0;color:var(--mute)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line);padding:8px 20px}
+.tabs{max-width:900px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.tabs button,.tools button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 11px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tools{max-width:900px;margin:10px auto 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+main{max-width:900px;margin:0 auto;padding:16px 20px 40px}
+.mh{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.mh h2{font:700 1.4rem Georgia,serif;margin:0}
+.focus{color:var(--mute);font-size:.9rem;margin:0 0 12px}.focus ul{margin:4px 0 10px;padding-left:20px}
+.row{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.row.done{opacity:.6}.row.done .topic{text-decoration:line-through}
+.row.today{background:var(--today)}
+.row input{width:22px;height:22px;margin-top:3px;accent-color:var(--accent);cursor:pointer}
+.when{font-weight:700}.time{color:var(--mute);font-weight:400;font-size:.88rem;margin-left:6px}
+.chip{display:inline-block;font-size:.78rem;color:var(--c);border:1px solid var(--c);border-radius:20px;padding:0 8px;margin-right:6px}
+.topic{font-weight:600}
+.act{color:var(--mute);font-size:.9rem;margin-top:2px}
+.mock{--c:var(--m)}
+footer{max-width:900px;margin:0 auto;padding:0 20px 30px;color:var(--mute);font-size:.85rem}
+@media print{nav,.tools{display:none}.row{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+<h1>9-Month Exam Prep Checklist</h1>
+<p class="sub">SBI PO · IBPS PO/Clerk · SSC CGL · UPSC CSAT &nbsp;|&nbsp; Thu 3–5 PM, Sat 3–5 PM, Sun 5–8 PM &nbsp;|&nbsp; Oct 2026 – Jun 2027</p>
+<div class="bar"><i id="allbar"></i></div>
+<div class="stat"><span id="allstat"></span><span id="hours"></span></div>
+</header>
+<nav><div class="tabs" id="tabs" role="tablist"></div></nav>
+<div class="tools">
+<span style="width:20px"></span>
+<button id="hide" aria-pressed="false">Hide completed</button>
+<button id="todayBtn">Jump to next session</button>
+<button id="reset">Reset all</button>
+<button id="print">Print</button>
+</div>
+<main id="main"></main>
+<footer>Progress saves automatically in this browser on this device. Weekly rhythm: Thursday = quant, Saturday = reasoning, Sunday = mixed timed practice, error-log review, and a monthly mock in the last Sunday of each month.</footer>
+
+<script>
+var MONTHS=[
+{n:'Oct 2026',y:2026,m:9,mode:'learn',
+ Q:['Number Systems – types of numbers, divisibility rules, factors, HCF & LCM, remainders','Basic Calculations – squares, cubes, tables, fractions, simplification, approximation','Percentages – percentage change, successive change, population and price problems','Ratio & Proportion – ratio, proportion, partnership, basic mixtures'],
+ R:['Verbal Analogy – word, letter and number analogies','Coding-Decoding – letter shifting, number and symbol coding','Coding-Decoding (advanced) – mixed and conditional coding','Revision – Verbal Analogy and Coding-Decoding timed sets']},
+{n:'Nov 2026',y:2026,m:10,mode:'learn',
+ Q:['Profit & Loss – cost price, selling price, discount, marked price, successive discount','Simple & Compound Interest – formulas, difference between SI and CI, installments','Averages – simple, weighted, age-based and replacement problems','Mixed Practice – Profit & Loss, Interest and Averages together'],
+ R:['Blood Relations – family tree method, coded relations','Direction Sense – distance, shortest path, final direction','Mixed Practice – Blood Relations and Direction Sense timed sets','Revision – October and November reasoning topics']},
+{n:'Dec 2026',y:2026,m:11,mode:'learn',
+ Q:['Time & Work – efficiency method, work and wages','Time & Work (advanced) – alternate days, group work, leaving and joining','Pipes & Cisterns – inlet pipes, outlet pipes, leakage','Mixed Practice – Time & Work and Pipes & Cisterns'],
+ R:['Seating Arrangement (Linear) – single and double row','Seating Arrangement (Circular) – facing inside and outside','Syllogisms – statements, conclusions, Venn method, possibility cases','Mixed Practice – Seating Arrangement and Syllogisms']},
+{n:'Jan 2027',y:2027,m:0,mode:'learn',
+ Q:['Speed, Time & Distance – basic formulas, average speed, relative speed','Trains and Races – train crossing problems, races, circular tracks','Boats & Streams – upstream, downstream, still-water speed','Mixed Practice – Speed-Distance and Boats & Streams'],
+ R:['Puzzles – floor, day and month based puzzles','Input-Output – word and number shifting, sorting, finding the step','Venn Diagrams – logical Venn diagrams and set-based questions','Mixed Practice – Puzzles, Input-Output and Venn Diagrams']},
+{n:'Feb 2027',y:2027,m:1,mode:'learn',
+ Q:['Algebra – identities, linear and quadratic equations, inequalities','Geometry Basics – lines, angles, triangles, circles','Mensuration 2D – area and perimeter of triangle, rectangle, circle','Mensuration 3D – volume and surface area of cube, cuboid, cylinder, cone, sphere'],
+ R:['Non-Verbal Reasoning: Paper Folding and Cutting','Non-Verbal Reasoning: Image Series and Pattern Completion','Non-Verbal Reasoning: Embedded Figures, Mirror and Water Images','Non-Verbal Reasoning – mixed timed practice']},
+{n:'Mar 2027',y:2027,m:2,mode:'learn',
+ Q:['Trigonometry – ratios, identities, standard angle values, heights and distances','Data Interpretation – Bar Charts and Line Charts','Data Interpretation – Pie Charts and mixed charts','DI Speed Practice – quick calculation and approximation methods'],
+ R:['Statement & Conclusions – deciding which conclusions follow','Statement & Assumptions – identifying implied assumptions','Statement & Course of Action, and Arguments','Mixed Practice – all Statement-based question types']},
+{n:'Apr 2027',y:2027,m:3,mode:'learn',
+ Q:['Advanced Data Interpretation – Caselet DI','Advanced Data Interpretation – Tabular and missing-data DI','Advanced Data Interpretation – Radar and mixed-graph DI (bank mains level)','Data Interpretation – timed sets (20 minutes each)'],
+ R:['Critical Reasoning – strengthen/weaken arguments, inference','Clock & Calendar – clock angles, odd days, finding the day','Cube & Dice – painted cubes, cutting, dice positions','Mixed Practice – Critical Reasoning, Clock, Calendar, Cube & Dice']},
+{n:'May 2027',y:2027,m:4,mode:'drill',
+ Q:['Quant Speed Drill: Arithmetic – Percentage, Profit & Loss, Interest, Time & Work, Speed','Quant Speed Drill: Algebra, Geometry, Mensuration','Banking Data Interpretation – SBI PO level sets','UPSC CSAT PYQs – Quantitative and Data Interpretation questions'],
+ R:['Reasoning Speed Drill – mixed verbal and non-verbal','High-level Banking Puzzles – SBI PO level','Banking Puzzles with Input-Output and Syllogisms','UPSC CSAT PYQs – Logical Reasoning questions']},
+{n:'Jun 2027',y:2027,m:5,mode:'mock',
+ Q:['Formula Revision – Arithmetic','Formula Revision – Algebra, Geometry, Mensuration, Trigonometry','Shortcut Methods – calculation and DI tricks','Exam-Day Strategy – attempt order, time split, cut-offs'],
+ R:['Revision – Verbal Reasoning patterns','Revision – Non-Verbal Reasoning','Shortcut Methods – puzzles and arrangements','Exam-Day Strategy – accuracy and stress management']}];
+
+var EXAMS=['SSC CGL','IBPS PO/Clerk','SBI PO','UPSC CSAT','SSC CGL'];
+var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var done={};
+try{done=JSON.parse(localStorage.getItem('prep-plan-done')||'{}')}catch(e){done={}}
+function save(){try{localStorage.setItem('prep-plan-done',JSON.stringify(done))}catch(e){}}
+
+function pick(list,w){return list[Math.min(list.length-1,Math.floor(w*list.length/5))]}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+function build(){
+  var out=[];
+  MONTHS.forEach(function(M,mi){
+    var list=[],last=0;
+    var n=new Date(M.y,M.m+1,0).getDate();
+    for(var d=1;d<=n;d++){
+      var dt=new Date(M.y,M.m,d),dow=dt.getDay();
+      if(dow===0)last=d;
+      if(dow!==4&&dow!==6&&dow!==0)continue;
+      if(dt<new Date(2026,9,4))continue;
+      var oct=(M.y===2026&&M.m===9);
+      var w=oct?Math.max(0,Math.floor((d-8)/7)):Math.min(4,Math.floor((d-1)/7));
+      var q=oct?M.Q[Math.min(3,w)]:pick(M.Q,w),r=oct?M.R[Math.min(3,w)]:pick(M.R,w),ex=EXAMS[w];
+      var s={id:iso(dt),date:dt,d:d,mi:mi};
+      if(dow===4){s.time='3:00 – 5:00 PM';s.sub='Quantitative Aptitude';s.c='--q';s.topic=q;
+        s.act=M.mode==='learn'?'Concept learning: study formulas and shortcuts (40 min), solve 15 worked examples, then practice 20 questions.'
+          :M.mode==='drill'?'Speed drill: 3 timed sets of 20 questions (25 min each), then review every wrong answer.'
+          :'Sectional mock (Quant, 45 min), then 75 min analysis and formula revision.'}
+      else if(dow===6){s.time='3:00 – 5:00 PM';s.sub='Reasoning';s.c='--r';s.topic=r;
+        s.act=M.mode==='learn'?'Concept learning: understand patterns (45 min), then practice 30 timed questions (75 min).'
+          :M.mode==='drill'?'Speed drill: 3 timed sets of 15 questions, plus 2 puzzle sets under exam timing.'
+          :'Sectional mock (Reasoning, 45 min), then 75 min weak-area revision.'}
+      else{s.time='5:00 – 8:00 PM';s.sub='Quant + Reasoning';s.c='--accent';s.topic='';s.q=q;s.r=r;s.sun=true;s.ex=ex;
+        s.act=M.mode==='mock'
+          ?'Full-length '+ex+' mock (about 1 hr 30 min under exam conditions), then 1 hr 30 min analysis and error log.'
+          :'5:00 Quant 30 Qs · 5:45 Reasoning 25 Qs · 6:30 timed sectional in '+ex+' pattern · 7:30 error-log review.'}
+      if(s.id==='2026-10-04'){s.q=null;s.sub='Kick-off';s.topic='Diagnostic test + Number Systems introduction';
+        s.act='5:00 Baseline test (Quant + Reasoning, 60 min) · 6:00 Review mistakes and note weak areas · 6:45 Number Systems basics: divisibility rules, factors, HCF/LCM · 7:30 Set up your error-log notebook.'}
+      list.push(s);
+    }
+    // last Sunday = monthly mock
+    list.forEach(function(s){
+      if(s.sun&&s.d===last){s.c='--m';s.mockday=true;s.q=null;s.sub='Monthly mock';
+        s.topic=M.mode==='mock'&&M.m===5?'Final full-length mock and exam-day checklist':'Monthly mock: '+(M.mode==='drill'?'mixed sectional (Quant + Reasoning + DI)':'all topics of '+M.n.split(' ')[0]);
+        s.act=M.mode==='mock'?'Full-length mock (SSC CGL / SBI PO / UPSC CSAT pattern), then 1 hr 30 min analysis and error log.'
+          :'90-min timed mock (SSC / Banking pattern) covering this month\'s topics, then 90 min analysis, error log and formula sheet update.'}
+    });
+    out.push({M:M,list:list});
+  });
+  return out;
+}
+var PLAN=build(),cur=0,hideDone=false;
+
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function allSessions(){return PLAN.reduce(function(a,p){return a.concat(p.list)},[])}
+
+function render(){
+  var tabs=document.getElementById('tabs');tabs.innerHTML='';
+  PLAN.forEach(function(p,i){
+    var c=p.list.filter(function(s){return done[s.id]}).length;
+    var b=el('button','',p.M.n.split(' ')[0]+' <small>'+c+'/'+p.list.length+'</small>');
+    b.setAttribute('role','tab');b.setAttribute('aria-selected',i===cur);
+    b.onclick=function(){cur=i;render();window.scrollTo(0,0)};
+    tabs.appendChild(b);
+  });
+  var P=PLAN[cur],main=document.getElementById('main');main.innerHTML='';
+  var mc=P.list.filter(function(s){return done[s.id]}).length;
+  var mh=el('div','mh','<h2>'+P.M.n+'</h2><span>'+mc+' of '+P.list.length+' sessions done</span>');
+  main.appendChild(mh);
+  var bar=el('div','bar','<i style="width:'+(100*mc/P.list.length)+'%"></i>');main.appendChild(bar);
+  main.appendChild(el('div','focus','<br><b>Quantitative topics this month</b><ul>'+P.M.Q.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul><b>Reasoning topics this month</b><ul>'+P.M.R.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'));
+  var todayId=iso(new Date());
+  P.list.forEach(function(s){
+    if(hideDone&&done[s.id])return;
+    var row=el('div','row'+(done[s.id]?' done':'')+(s.id===todayId?' today':'')+(s.mockday?' mock':''));
+    row.id='s'+s.id;row.style.setProperty('--c','var('+s.c+')');
+    var cb=document.createElement('input');cb.type='checkbox';cb.checked=!!done[s.id];
+    cb.setAttribute('aria-label','Mark '+s.id+' done');
+    cb.onchange=function(){if(cb.checked)done[s.id]=1;else delete done[s.id];save();render()};
+    row.appendChild(cb);
+    var body=el('div','',
+      '<div class="when">'+DAYS[s.date.getDay()]+', '+s.d+' '+MN[s.date.getMonth()]+' '+s.date.getFullYear()+'<span class="time">'+s.time+'</span></div>'+
+      '<div><span class="chip" style="--c:var('+s.c+')">'+s.sub+'</span>'+(s.q?'</div><div class="topic">Quant: '+s.q+'</div><div class="topic">Reasoning: '+s.r+'</div>':'<span class="topic">'+s.topic+'</span></div>')+
+      '<div class="act">'+s.act+'</div>');
+    row.appendChild(body);main.appendChild(row);
+  });
+  var all=allSessions(),dn=all.filter(function(s){return done[s.id]}).length;
+  document.getElementById('allbar').style.width=(100*dn/all.length)+'%';
+  document.getElementById('allstat').textContent=dn+' of '+all.length+' sessions complete ('+Math.round(100*dn/all.length)+'%)';
+  var hrs=all.reduce(function(a,s){return a+(done[s.id]?(s.sun?3:2):0)},0);
+  document.getElementById('hours').textContent=hrs+' study hours logged';
+}
+
+document.getElementById('hide').onclick=function(){hideDone=!hideDone;this.setAttribute('aria-pressed',hideDone);this.textContent=hideDone?'Show completed':'Hide completed';render()};
+document.getElementById('todayBtn').onclick=function(){
+  var t=iso(new Date()),all=allSessions();
+  var nxt=all.find(function(s){return s.id>=t&&!done[s.id]})||all.find(function(s){return !done[s.id]});
+  if(!nxt)return;cur=nxt.mi;hideDone=false;render();
+  var e=document.getElementById('s'+nxt.id);if(e)e.scrollIntoView({block:'center'});
+};
+document.getElementById('reset').onclick=function(){if(confirm('Clear all progress?')){done={};save();render()}};
+document.getElementById('print').onclick=function(){window.print()};
+
+(function(){var t=iso(new Date());var i=PLAN.findIndex(function(p){return p.list.some(function(s){return s.id>=t})});cur=i<0?0:i;if(t<'2026-10-01')cur=0;render()})();
+</script>
+</body>
+</html>
